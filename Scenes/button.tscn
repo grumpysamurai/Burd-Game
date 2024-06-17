@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://cunh31bxotd1o"]
+
+[ext_resource type="Script" path="res://Scripts/button.gd" id="1_dgnt6"]
+[ext_resource type="Texture2D" uid="uid://dkcfol0cg575a" path="res://Sprites/Button+Door.png" id="1_oxu6u"]
+[ext_resource type="Script" path="res://Scripts/ButtonArea.gd" id="1_wk3x0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ev8vp"]
+size = Vector2(20, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5gn0"]
+size = Vector2(18, 5.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwlgp"]
+atlas = ExtResource("1_oxu6u")
+region = Rect2(0, 0, 19, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qaof"]
+atlas = ExtResource("1_oxu6u")
+region = Rect2(19, 0, 19, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3rhm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwlgp")
+}],
+"loop": true,
+"name": &"notpressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qaof")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+z_index = 2
+script = ExtResource("1_dgnt6")
+
+[node name="ButtonArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_wk3x0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonArea"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_ev8vp")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, -3.25)
+shape = SubResource("RectangleShape2D_y5gn0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 25)
+sprite_frames = SubResource("SpriteFrames_o3rhm")
+animation = &"notpressed"
+
+[connection signal="body_entered" from="ButtonArea" to="ButtonArea" method="_on_body_entered"]
