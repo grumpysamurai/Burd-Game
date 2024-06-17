@@ -83,4 +83,4 @@ scale = Vector2(4.47, 4.47)
 zoom = Vector2(1.01, 1.01)
 
 [node name="Player" parent="." instance=ExtResource("1_ilsr0")]
-position = Vector2(188, -126)
+position = Vector2(134, -108)

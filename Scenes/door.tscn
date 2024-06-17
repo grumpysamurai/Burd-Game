@@ -8,6 +8,8 @@ var anim = get_child(1)
 
 func raise():
 	anim.play(\"Raise\")
+func close():
+	anim.play(\"Close\")
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q2s6r"]

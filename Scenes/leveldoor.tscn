@@ -1,47 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqm1c0bw00pgi"]
+[gd_scene load_steps=2 format=3 uid="uid://bqm1c0bw00pgi"]
 
-[ext_resource type="Texture2D" uid="uid://ch1sn1uyfhyel" path="res://Sprites/leveldoor.png" id="1_hatnx"]
 [ext_resource type="Script" path="res://Scripts/leveldoor.gd" id="1_n2bix"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ts1li"]
-atlas = ExtResource("1_hatnx")
-region = Rect2(0, 0, 12, 22)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xfugp"]
-atlas = ExtResource("1_hatnx")
-region = Rect2(12, 0, 12, 22)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_apjwj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ts1li")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xfugp")
-}],
-"loop": true,
-"name": &"default",
-"speed": 3.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgdlw"]
-size = Vector2(4, 21)
 
 [node name="leveldoor" type="Area2D"]
 z_index = 200
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_n2bix")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 2
-sprite_frames = SubResource("SpriteFrames_apjwj")
-autoplay = "default"
-frame_progress = 0.365791
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 0)
-shape = SubResource("RectangleShape2D_tgdlw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
