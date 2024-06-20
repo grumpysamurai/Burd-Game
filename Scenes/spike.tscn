@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyg0q7fc3r6wu"]
+
+[ext_resource type="Texture2D" uid="uid://dwmb60tqe53ac" path="res://Sprites/Spike.png" id="1_kexgk"]
+[ext_resource type="PackedScene" uid="uid://hrkkxhg3lrct" path="res://Scenes/deathzone.tscn" id="2_p4bhr"]
+
+[node name="Spike" type="RigidBody2D"]
+scale = Vector2(0.81, 0.81)
+collision_layer = 32
+collision_mask = 32
+gravity_scale = 0.0
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, -2)
+build_mode = 1
+polygon = PackedVector2Array(-38, 1, 41, 1, 1, -78)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(46, 5)
+scale = Vector2(5.375, 5.375)
+texture = ExtResource("1_kexgk")
+
+[node name="Deathzone" parent="." instance=ExtResource("2_p4bhr")]
+position = Vector2(0, -26)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Deathzone"]
+position = Vector2(0, 26)
+polygon = PackedVector2Array(40, 0, 0, -81, -40, 0)

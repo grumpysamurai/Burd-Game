@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c05qdthqavcq"
-path="res://.godot/imported/Spike.png-b61e573f8651e478982148589351f8d1.ctex"
+uid="uid://bg7msl7qrth57"
+path="res://.godot/imported/Launchpad.png-df17b255b7adb5719d81f0d032350196.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Spike.png"
-dest_files=["res://.godot/imported/Spike.png-b61e573f8651e478982148589351f8d1.ctex"]
+source_file="res://Sprites/Launchpad.png"
+dest_files=["res://.godot/imported/Launchpad.png-df17b255b7adb5719d81f0d032350196.ctex"]
 
 [params]
 
