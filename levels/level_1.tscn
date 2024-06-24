@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://67gv8y2qobtk"]
+[gd_scene load_steps=29 format=3 uid="uid://67gv8y2qobtk"]
 
 [ext_resource type="PackedScene" uid="uid://dt64r8fvngmnm" path="res://Scenes/player.tscn" id="1_2eaoq"]
 [ext_resource type="Texture2D" uid="uid://bhnww5s2gn2n4" path="res://Sprites/Brick.png" id="3_dxl2u"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bn1tykur3tkw0" path="res://Scenes/platform.tscn" id="7_w8s87"]
 [ext_resource type="PackedScene" uid="uid://cunh31bxotd1o" path="res://Scenes/button.tscn" id="8_7tb3e"]
 [ext_resource type="PackedScene" uid="uid://dmlvufuo6po7d" path="res://Scenes/door.tscn" id="9_74lop"]
+[ext_resource type="PackedScene" uid="uid://dr33g3p4vxabq" path="res://levels/level_2.tscn" id="9_613sn"]
 [ext_resource type="PackedScene" uid="uid://bqm1c0bw00pgi" path="res://Scenes/leveldoor.tscn" id="11_4gner"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o43nb"]
@@ -279,6 +280,7 @@ libraries = {
 [node name="leveldoor" parent="." instance=ExtResource("11_4gner")]
 position = Vector2(3391, 281)
 scale = Vector2(7.21, 7.21)
+target = ExtResource("9_613sn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="leveldoor"]
 position = Vector2(4.67755, 68.3773)

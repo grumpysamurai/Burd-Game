@@ -1,6 +1,6 @@
 extends Area2D
 @onready var timer = $Timer
+@export var target : PackedScene = null
 
 func _on_body_entered(body):
-	body.queue_free()
-	get_tree().change_scene_to_file("res://levels/level_2.tscn")
+	get_tree().change_scene_to_packed(target)

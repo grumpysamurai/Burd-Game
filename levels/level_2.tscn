@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dr33g3p4vxabq"]
+[gd_scene load_steps=12 format=3 uid="uid://dr33g3p4vxabq"]
 
 [ext_resource type="Texture2D" uid="uid://g7g5m73e5kvt" path="res://Sprites/background.png" id="1_1h3vi"]
 [ext_resource type="PackedScene" uid="uid://dt64r8fvngmnm" path="res://Scenes/player.tscn" id="1_ilsr0"]
 [ext_resource type="Texture2D" uid="uid://bhnww5s2gn2n4" path="res://Sprites/Brick.png" id="2_qqt8n"]
 [ext_resource type="Texture2D" uid="uid://ca1duqytpi7fd" path="res://Sprites/Ground.png" id="3_kcfgd"]
-[ext_resource type="PackedScene" uid="uid://bn1tykur3tkw0" path="res://Scenes/platform.tscn" id="6_q05xq"]
 [ext_resource type="FontFile" uid="uid://jp0ecof0k7eq" path="res://fonts/PixelifySans-Medium.ttf" id="7_w5ly3"]
 [ext_resource type="PackedScene" uid="uid://bgrt24cphf12b" path="res://Scenes/jumppad.tscn" id="7_wqd0x"]
 
@@ -59,43 +58,8 @@ sources/0 = SubResource("TileSetAtlasSource_jbx1e")
 sources/1 = SubResource("TileSetAtlasSource_b42ma")
 sources/2 = SubResource("TileSetAtlasSource_tjobp")
 
-[sub_resource type="Animation" id="Animation_pogvp"]
-resource_name = "Move"
-length = 2.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.7, 1.3, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(314, 369), Vector2(314, 260), Vector2(515, 260), Vector2(515, 370)]
-}
-
-[sub_resource type="Animation" id="Animation_1qs8c"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(314, 369)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_23yhd"]
-_data = {
-"Move": SubResource("Animation_pogvp"),
-"RESET": SubResource("Animation_1qs8c")
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm0yl"]
+size = Vector2(29, 566)
 
 [node name="Node2D" type="Node2D"]
 
@@ -105,9 +69,9 @@ scale = Vector2(4.47, 4.47)
 tile_set = SubResource("TileSet_3ohea")
 format = 2
 layer_0/name = "Background"
-layer_0/tile_data = PackedInt32Array(-131080, 65536, 0, -65544, 131072, 0, -8, 0, 0, 65528, 0, 0, 131064, 0, 0, -131079, 65536, 0, -65543, 131072, 0, -7, 0, 0, 65529, 0, 0, 131065, 0, 0, -131078, 65536, 0, -65542, 131072, 0, -6, 0, 0, 65530, 0, 0, 131066, 0, 0, -131077, 65536, 0, -65541, 131072, 0, -5, 0, 0, 65531, 0, 0, 131067, 0, 0, -131076, 65536, 0, -65540, 131072, 0, -4, 0, 0, 65532, 0, 0, 131068, 0, 0, -131075, 65536, 0, -65539, 131072, 0, -3, 0, 0, 65533, 0, 0, 131069, 0, 0, -131074, 65536, 0, -65538, 131072, 0, -2, 0, 0, 65534, 0, 0, 131070, 0, 0, -131073, 65536, 0, -65537, 131072, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, -196608, 65536, 0, -131072, 131072, 0, -65536, 0, 0, 0, 0, 0, 65536, 0, 0, -196607, 65536, 0, -131071, 131072, 0, -65535, 0, 0, 1, 0, 0, 65537, 0, 0, -196606, 65536, 0, -131070, 131072, 0, -65534, 0, 0, 2, 0, 0, 65538, 0, 0, -196605, 65536, 0, -131069, 131072, 0, -65533, 0, 0, 3, 0, 0, 65539, 0, 0, -196604, 65536, 0, -131068, 131072, 0, -65532, 0, 0, 4, 0, 0, 65540, 0, 0, -196603, 65536, 0, -131067, 131072, 0, -65531, 0, 0, 5, 0, 0, 65541, 0, 0, -196602, 65536, 0, -131066, 131072, 0, -65530, 0, 0, 6, 0, 0, 65542, 0, 0, -196601, 65536, 0, -131065, 131072, 0, -65529, 0, 0, 7, 0, 0, 65543, 0, 0)
+layer_0/tile_data = PackedInt32Array(-131080, 65536, 0, -65544, 131072, 0, -8, 0, 0, 65528, 0, 0, 131064, 0, 0, -131079, 65536, 0, -65543, 131072, 0, -7, 0, 0, 65529, 0, 0, 131065, 0, 0, -131078, 65536, 0, -65542, 131072, 0, -6, 0, 0, 65530, 0, 0, 131066, 0, 0, -131077, 65536, 0, -65541, 131072, 0, -5, 0, 0, 65531, 0, 0, 131067, 0, 0, -131076, 65536, 0, -65540, 131072, 0, -4, 0, 0, 65532, 0, 0, 131068, 0, 0, -131075, 65536, 0, -65539, 131072, 0, -3, 0, 0, 65533, 0, 0, 131069, 0, 0, -131074, 65536, 0, -65538, 131072, 0, -2, 0, 0, 65534, 0, 0, 131070, 0, 0, -131073, 65536, 0, -65537, 131072, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, -196608, 65536, 0, -131072, 131072, 0, -65536, 0, 0, 0, 0, 0, 65536, 0, 0, -196607, 65536, 0, -131071, 131072, 0, -65535, 0, 0, 1, 0, 0, 65537, 0, 0, -196606, 65536, 0, -131070, 131072, 0, -65534, 0, 0, 2, 0, 0, 65538, 0, 0, -196605, 65536, 0, -131069, 131072, 0, -65533, 0, 0, 3, 0, 0, 65539, 0, 0, -196604, 65536, 0, -131068, 131072, 0, -65532, 0, 0, 4, 0, 0, 65540, 0, 0, -196603, 65536, 0, -131067, 131072, 0, -65531, 0, 0, 5, 0, 0, 65541, 0, 0, -196602, 65536, 0, -131066, 131072, 0, -65530, 0, 0, 6, 0, 0, 65542, 0, 0, -196601, 65536, 0, -131065, 131072, 0, -65529, 0, 0, 7, 0, 0, 65543, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 393215, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 131073, 0, 0, 196609, 0, 0, 262145, 0, 0, 327681, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 0, 0, 327682, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 0, 0, 327683, 0, 0)
 layer_1/name = "Foreground"
-layer_1/tile_data = PackedInt32Array(196600, 2, 0, 196601, 2, 0, 196602, 2, 0, 196605, 2, 0, 196606, 2, 0, 131073, 2, 0, 131074, 2, 0, 131075, 2, 0, 131076, 2, 0, 131077, 2, 0, 131078, 2, 0, 131079, 2, 0, 262136, 65538, 0, 327672, 65538, 0, 262137, 65538, 0, 327673, 65538, 0, 262138, 65538, 0, 327674, 65538, 0, 196609, 65538, 0, 262145, 65538, 0, 196610, 65538, 0, 196611, 65538, 0, 262147, 65538, 0, 196612, 65538, 0, 262148, 65538, 0, 196613, 65538, 0, 262149, 65538, 0, 196614, 65538, 0, 262150, 65538, 0, 196615, 65538, 0, 262151, 65538, 0, 393208, 2, 1, 393209, 2, 1, 393210, 2, 1, 393211, 2, 1, 393212, 2, 1, 393213, 2, 1, 393214, 2, 1, 393215, 2, 1, 327680, 2, 1, 327681, 2, 1, 327682, 2, 1, 327683, 2, 1, 327684, 2, 1, 327685, 2, 1, 327686, 2, 1, 327687, 2, 1, 262146, 65538, 0, 327677, 65538, 0, 262141, 65538, 0, 327676, 65538, 0, 327675, 65538, 0, 262142, 65538, 0, 327678, 65538, 0, 327679, 65538, 0, 262143, 65538, 0, 196607, 2, 0, 131072, 2, 0, 196608, 65538, 0, 262144, 65538, 0, 196603, 2, 0, 262139, 65538, 0, 196604, 2, 0, 262140, 65538, 0)
+layer_1/tile_data = PackedInt32Array(196600, 2, 0, 196601, 2, 0, 196602, 2, 0, 196605, 2, 0, 131076, 2, 0, 131077, 2, 0, 131078, 2, 0, 131079, 2, 0, 262136, 65538, 0, 327672, 65538, 0, 262137, 65538, 0, 327673, 65538, 0, 262138, 65538, 0, 327674, 65538, 0, 196612, 65538, 0, 262148, 65538, 0, 196613, 65538, 0, 262149, 65538, 0, 196614, 65538, 0, 262150, 65538, 0, 196615, 65538, 0, 262151, 65538, 0, 393208, 2, 1, 393209, 2, 1, 393210, 2, 1, 393211, 2, 1, 393212, 2, 1, 393213, 2, 1, 327684, 2, 1, 327685, 2, 1, 327686, 2, 1, 327687, 2, 1, 327677, 65538, 0, 262141, 65538, 0, 327676, 65538, 0, 327675, 65538, 0, 196603, 2, 0, 262139, 65538, 0, 196604, 2, 0, 262140, 65538, 0, 196606, 2, 0, 262142, 65538, 0, 327678, 65538, 0, 393214, 2, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -116,32 +80,30 @@ scale = Vector2(4.47, 4.47)
 zoom = Vector2(1.01, 1.01)
 
 [node name="Player" parent="." instance=ExtResource("1_ilsr0")]
-position = Vector2(134, -108)
-
-[node name="Platform" parent="." instance=ExtResource("6_q05xq")]
-position = Vector2(314, 369)
-
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="Platform"]
-libraries = {
-"": SubResource("AnimationLibrary_23yhd")
-}
-autoplay = "Move"
+position = Vector2(84, -108)
 
 [node name="Labels" type="Node" parent="."]
 
-[node name="Spike" type="Label" parent="Labels"]
+[node name="Jump Pad" type="Label" parent="Labels"]
 visibility_layer = 512
-offset_left = 37.0
-offset_top = 272.0
-offset_right = 522.0
-offset_bottom = 317.0
+offset_left = 38.0
+offset_top = 206.0
+offset_right = 523.0
+offset_bottom = 251.0
 theme_override_fonts/font = ExtResource("7_w5ly3")
 theme_override_font_sizes/font_size = 26
-text = "Spikes will kill you"
+text = "Use Launch Pads to Jump"
 metadata/_edit_use_anchors_ = true
 
 [node name="Jump Pad" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_wqd0x")]
-position = Vector2(461, 362)
+position = Vector2(445, 359)
 player = NodePath("../Player")
-launchx = 500
-launchy = 800
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(23, 344)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-4.5, -273)
+shape = SubResource("RectangleShape2D_sm0yl")

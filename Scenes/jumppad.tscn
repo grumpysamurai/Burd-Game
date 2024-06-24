@@ -1,13 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://bgrt24cphf12b"]
 
-[ext_resource type="Script" path="res://Scenes/jumppadlaunch.gd" id="1_1xkli"]
+[ext_resource type="Script" path="res://Scripts/jumppadlaunch.gd" id="1_1xkli"]
 [ext_resource type="Script" path="res://Scripts/JumpPad.gd" id="1_bamx0"]
-[ext_resource type="Texture2D" uid="uid://bg7msl7qrth57" path="res://Sprites/Launchpad.png" id="2_vwvr1"]
+[ext_resource type="Texture2D" uid="uid://dskekgu6743px" path="res://Sprites/Launchpad.png" id="2_vwvr1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ahwu"]
-size = Vector2(129, 45)
+size = Vector2(132, 45)
 
 [node name="Jump Pad" type="Node2D"]
+z_index = 101
 script = ExtResource("1_1xkli")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -16,12 +17,20 @@ collision_mask = 128
 script = ExtResource("1_bamx0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1.5, -24.5)
+position = Vector2(0, -24.5)
 shape = SubResource("RectangleShape2D_7ahwu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-7.62939e-06, 17)
+position = Vector2(-4.54747e-13, 29)
 scale = Vector2(4.125, 4.125)
 texture = ExtResource("2_vwvr1")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2(1, 9)
+polygon = PackedVector2Array(65, -9, -67, -9, -57, -34, 54, -34)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
