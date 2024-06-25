@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://yq7smd71h4nq"]
+
+[ext_resource type="Script" path="res://LogicManager.gd" id="1_bib1y"]
+
+[node name="LogicManager" type="Node"]
+script = ExtResource("1_bib1y")

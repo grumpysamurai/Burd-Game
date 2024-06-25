@@ -1,12 +1,19 @@
 extends Area2D
 @onready var camera_2d = %Camera2D
+@onready var timer = $Timer
 
 var iscameramoving = false
 var direction
 var targetposition
 
+var hasgamestarted = false
+
+func _ready():
+	hasgamestarted = false
+	timer.start()
+
 func _on_body_entered(body):
-	if iscameramoving == false:
+	if iscameramoving == false && hasgamestarted == true:
 		if Input.is_action_pressed("Right"):
 			body.position.x+=150
 			direction = 1
@@ -38,3 +45,7 @@ func _process(delta):
 				camera_2d.position.x = targetposition
 				iscameramoving = false
 		
+
+
+func _on_timer_timeout():
+	hasgamestarted = true
